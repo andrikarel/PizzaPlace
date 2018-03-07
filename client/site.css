@@ -94,6 +94,9 @@ body{
 .active {
     background-color:purple;
 }
+.active:hover {
+    background-color:purple;
+}
 .details-wrapper {
     background-color: white;
     text-align: center;

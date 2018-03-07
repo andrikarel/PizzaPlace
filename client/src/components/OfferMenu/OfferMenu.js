@@ -12,7 +12,7 @@ class OfferMenu extends React.Component {
         const {offer} = this.props;
         return (
             <div>
-                <h1 className="pageTitle">- Offers -</h1>
+                <h1 className="pageTitle">OFFERS</h1>
                 {offer.map(o=><Offer key={o.id}offer={o}/>)}
             </div>
         )

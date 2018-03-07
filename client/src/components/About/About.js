@@ -5,7 +5,7 @@ class About extends React.Component {
 
         return (
             <div className="about-wrapper">
-                <h1 className="pageTitle"> - About Us - </h1>
+                <h1 className="pageTitle">ABOUT US</h1>
                 <div>
                     <h2>Our pizzas</h2>
                     <p>Our pizzas are world class and will guarantee you satisfaction on a physical level as well as psychological.
