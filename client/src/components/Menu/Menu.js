@@ -13,6 +13,7 @@ class Menu extends React.Component {
         console.log(pizza);
         return (
             <div>
+                <h1 className="pageTitle">- Menu -</h1>
                 {pizza.map(p=><Pizza key={p.id}pizza={p}/>)}
             </div>
         )

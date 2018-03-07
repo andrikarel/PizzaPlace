@@ -2,7 +2,7 @@
 .container {
     width: 1000px;
     margin: 0 auto;
-    margin-top: 50px;
+    margin-top: 70px;
     background-image: url("https://cdn.wallpapersafari.com/83/72/vi9s3k.gif");
     box-sizing: border-box;
     padding: 20px;
@@ -30,17 +30,26 @@ body{
     color:purple;
     text-transform: uppercase;
 }
+.pizza-name {
+    padding: 5px;
+}
 .pizza-image > img {
     max-height: 100px;
     width: auto;
     object-fit: contain;
 }
 .pizza-description {
-    height: 40%;
+    height: 30%;
     overflow: hidden;
+    border-bottom: 1px solid lightgray;
+}
+.pizza-price {
+    padding: 20px;
+    font-weight: bold;
 }
 .navbar {
     z-index: 500;
+    height: 80px;
     position: fixed;
     width: 100%;
     top: 0;
@@ -52,18 +61,85 @@ body{
     width: 50px;
     height: 50px;
     float: left;
-    vertical-align: middle;
-    margin: 0 auto;
-
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    margin-left: 20px;
 }
 .nav-logo > h3 {
-    width: 500px;
-    height: 50px;
-    line-height: 50px;
+    width: 200px;
+    height: 80px;
+    line-height: 80px;
     color: white;
     float: left;
+    vertical-align: middle;
+    margin: 0 auto;
+    margin-left: 90px;
 }
 .pizza-wrapper {
-
     color:black;
+}
+.nav-link {
+    float: right;
+    width: 100px;
+    color: white;
+    line-height: 80px;
+    text-align: center;
+    text-decoration: none;
+}
+.nav-link:hover {
+    background-color: rgb(34, 34, 34);
+}
+.active {
+    background-color:purple;
+}
+.details-wrapper {
+    background-color: white;
+    text-align: center;
+    padding-top: 20px;
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+}
+
+.details-wrapper .details-name {
+    margin-top: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    color:purple;
+    text-transform: uppercase;
+}
+.details-name {
+    padding: 20px;
+}
+.details-name > u {
+    text-decoration: none;
+    padding: 5px;
+    border-bottom: 3px solid lightgray;
+}
+.details-image > img {
+    max-height: 200px;
+    width: auto;
+    object-fit: contain;
+}
+.details-description {
+    overflow: hidden;
+    border-bottom: 1px solid lightgray;
+    padding: 10px;
+    width: 30%;
+    margin: 0 auto;
+}
+.details-price {
+    padding: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color:rgb(37, 37, 37);    
+}
+.pageTitle {
+    color: white;
+    text-align: center;
+}
+.about-wrapper {
+    color: white;
 }

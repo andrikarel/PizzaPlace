@@ -30,4 +30,4 @@ Pizza.propTypes = {
     })
 };
 
-export default Pizza
+export default Pizza;

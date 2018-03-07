@@ -9,6 +9,7 @@ import PizzaDetails from './components/PizzaDetails/PizzaDetails';
 import About from './components/About/About';
 import NavigationBar from './components/NavBar/NavBar';
 import {BrowserRouter as Router,Switch,Route,Redirect} from 'react-router-dom';
+import OfferMenu from './components/OfferMenu/OfferMenu';
 
 
 
@@ -23,8 +24,8 @@ const App = () => {
                 }} />
                 <Route path="/menu/:id" component={PizzaDetails}/>
                 <Route path="/about" component={About}/>
-                {/* <Route path="/offers" component={Menu}/>
-                <Route path="/cart" component={Menu}/> */}
+                <Route path="/offers" component={OfferMenu}/>
+                {/*<Route path="/cart" component={Menu}/> */}
             </Switch>
         </div>
     )

@@ -15,13 +15,13 @@ class PizzaDetails extends React.Component {
         const {pizza} = this.props;
         if(pizza.length != 0) {
             return(
-                <div className="pizza-wrapper hvr-grow">
-                    <div className="pizza-image hvr-pop">
+                <div className="details-wrapper">
+                    <div className="details-image hvr-buzz">
                         <img src={pizza[0].image} alt=""/>
                     </div>
-                    <div className="pizza-name">{pizza[0].name}</div>
-                    <div className="pizza-description">{pizza[0].description}</div>
-                    <div className="pizza-price">{pizza[0].price}</div>
+                    <div className="details-name"><u>{pizza[0].name}</u></div>
+                    <div className="details-description">{pizza[0].description}</div>
+                    <div className="details-price">Price: {pizza[0].price}</div>
                 </div>
             )
         }else{
