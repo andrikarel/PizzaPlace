@@ -1,5 +1,5 @@
 
-import {GET_ALL_PIZZAS} from '../constants/pizzaConstants';
+import {GET_ALL_PIZZAS,GET_PIZZA_DETAILS} from '../constants/pizzaConstants';
 import fetch from 'isomorphic-fetch';
 export const getAllPizzas = () => {
     return dispatch => fetch('http://localhost:3500/api/pizzas').then(json => json.json()).then(data => dispatch(getAllPizzasSuccess(data)));
@@ -11,3 +11,18 @@ const getAllPizzasSuccess = (pizzas) => {
         payload: pizzas
     }
 }
+
+export const getPizzaDetails = (id) => {
+    return dispatch => fetch(`http://localhost:3500/api/pizzas/${id}`).then(json => json.json()).then(data => dispatch(getPizzaDetailsSuccess(data)));
+};
+
+const getPizzaDetailsSuccess = (pizza) => {
+    return {
+        type: GET_PIZZA_DETAILS,
+        payload: [pizza]
+    }
+}
+
+
+
+
