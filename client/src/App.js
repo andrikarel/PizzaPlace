@@ -11,6 +11,8 @@ import NavigationBar from './components/NavBar/NavBar';
 import {BrowserRouter as Router,Switch,Route,Redirect} from 'react-router-dom';
 import OfferMenu from './components/OfferMenu/OfferMenu';
 import Cart from './components/Cart/Cart';
+import Checkout from './components/Checkout/Checkout';
+
 import OfferDetails from './components/OfferDetails/OfferDetails';
 
 
@@ -29,6 +31,7 @@ const App = () => {
                 <Route exact path="/offers" component={OfferMenu}/>
                 <Route path="/offers/:id" component={OfferDetails}/>
                 <Route path="/cart" component={Cart}/> 
+                <Route path="/checkout" component={Checkout}/> 
             </Switch>
         </div>
     )

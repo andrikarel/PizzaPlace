@@ -1,9 +1,10 @@
 import React from 'react';
 import  {connect} from 'react-redux';
+import toastr from 'toastr';
 
 import  {PropTypes} from 'prop-types';
 
-import {getOfferDetails,getAllPizzas} from '../../actions/pizzaActions'
+import {getOfferDetails,getAllPizzas,addToCart,saveCart} from '../../actions/pizzaActions'
 
 
 
@@ -18,22 +19,41 @@ class OfferDetails extends React.Component {
         if(id === 1 || id === 2) {
             return(
                 <div>
-                    <select>
-                        {pizza.map(p=><option value ={p.id}>{`${p.name} - ${p.price}`}</option>)}
+                    <select className='pizza-selected'>
+                        {pizza.map(p=><option key={p.id} value ={p.name}>{`${p.name} - ${p.price}`}</option>)}
                     </select>
-                    <select>
-                        {pizza.map(p=><option value ={p.id}>{`${p.name} - ${p.price}`}</option>)}
+                    <select className='pizza-selected'>
+                        {pizza.map(p=><option key={p.id} value ={p.name}>{`${p.name} - ${p.price}`}</option>)}
                     </select>
                     
                 </div>
             );
         }else {
             return(
-                <select>
-                    {pizza.map(p=><option value ={p.id}>{`${p.name} - ${p.price}`}</option>)}
+                <select className='pizza-selected'>
+                    {pizza.map(p=><option key={p.id} value ={p.name}>{`${p.name} - ${p.price}`}</option>)}
                 </select>
             );
         }
+    }
+    addOfferToCart(offer) {
+        const {addToCart,saveCart,cart} = this.props;
+        offer.type = 'offer';
+        offer.pizzas = $('.pizza-selected').map(function() {
+            return $(this).val();
+        })
+        console.log(offer.pizzas);
+        addToCart(offer);
+        saveCart(cart);
+        toastr.options = {
+            timeOut : 0,
+            extendedTimeOut : 100,
+            tapToDismiss : true,
+            debug : false,
+            fadeOut: 10,
+            positionClass : 'toast-top-left'
+        };        
+        toastr.success('Offer added to cart! now GTFO', 'Success!');
     }
     
     render() {
@@ -50,7 +70,7 @@ class OfferDetails extends React.Component {
                             <div>{this.displayOffer(offer[0].id,pizza)}</div>
                         </div>
                     </div>
-                    <button>Add to cart</button>
+                    <button onClick={() => this.addOfferToCart(offer[0])}>Add to cart</button>
                 </div>
             )
         }else {
@@ -66,5 +86,5 @@ const mapStateToProps = ({offer,pizza}) => {
     return {offer,pizza}
 }
 
-export default connect(mapStateToProps, {getOfferDetails,getAllPizzas})(OfferDetails);
+export default connect(mapStateToProps, {getOfferDetails,getAllPizzas,addToCart,saveCart})(OfferDetails);
 
