@@ -1,6 +1,10 @@
 
 import {GET_ALL_PIZZAS,GET_PIZZA_DETAILS, GET_ALL_OFFERS} from '../constants/pizzaConstants';
 import fetch from 'isomorphic-fetch';
+import { LOAD_CART, SAVE_CART, ADD_TO_CART,GET_CART, CLEAR_CART } from '../constants/cartConstants';
+const myStorage = window.localStorage;
+
+
 export const getAllPizzas = () => {
     return dispatch => fetch('http://localhost:3500/api/pizzas').then(json => json.json()).then(data => dispatch(getAllPizzasSuccess(data)));
 };
@@ -33,6 +37,51 @@ const getAllOffersSuccess = (offers) => {
         payload: offers
     }
 }
+
+export const loadCart = () => {
+    return dispatch => dispatch(loadCartSuccess(JSON.parse(myStorage.getItem('cart'))));
+}
+
+const loadCartSuccess = (cart) => {
+    return {
+        type: LOAD_CART,
+        payload: (cart === null ? [] : cart)
+    }
+}
+
+export const saveCart = (cart) => {
+    myStorage.setItem('cart', JSON.stringify(cart));
+    return dispatch => dispatch(saveCartSuccess());
+}
+
+const saveCartSuccess = () => {
+    return {
+        type: SAVE_CART,
+        payload: []
+    }
+}
+
+export const addToCart = (cartItem) => {
+    return dispatch => dispatch({
+        type: ADD_TO_CART,
+        payload: cartItem
+    })
+}
+
+export const getCart = () => {
+    return dispatch => dispatch({
+        type: GET_CART,
+        payload: []
+    })
+}
+
+export const clearCart = () => {
+    return dispatch({
+        type: CLEAR_CART,
+        payload: []
+    })
+}
+
 
 
 

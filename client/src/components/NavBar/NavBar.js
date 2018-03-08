@@ -10,7 +10,7 @@ const NavigationBar = ({logoImageUrl}) => {
             <Link to={'/menu'}>
                 <div className="nav-logo">
                     <img src={logoImageUrl}></img>
-                    <h3>Jason Statham Pizza</h3>
+                    <h3>PizzeriaUno</h3>
                 </div>
             </Link>
             <NavBarLinkWrapper>

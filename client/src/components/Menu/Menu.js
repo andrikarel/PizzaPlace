@@ -10,7 +10,6 @@ class Menu extends React.Component {
     }
     render() {
         const {pizza} = this.props;
-        console.log(pizza);
         return (
             <div>
                 <h1 className="pageTitle">MENU</h1>
