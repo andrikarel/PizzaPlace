@@ -86,7 +86,7 @@ class Checkout extends React.Component {
                 }
             }else{
                 return(
-                    <div className="pizza-wrapper">
+                    <div className="details-wrapper">
                         <h1 className="pageTitle">ORDER REVIEW</h1>
                         <p>Name: {name}</p>
                         <p>Address: {address}</p>

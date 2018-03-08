@@ -18,11 +18,11 @@ class PizzaDetails extends React.Component {
         addToCart(pizza);
         saveCart(cart);
         toastr.options = {
-            timeOut : 0,
-            extendedTimeOut : 100,
+            timeOut : 1000,
+            extendedTimeOut : 1000,
             tapToDismiss : true,
             debug : false,
-            fadeOut: 10,
+            fadeOut: 1000,
             positionClass : 'toast-top-left'
         };        
         toastr.success('Pizza added to cart!', 'Success!');

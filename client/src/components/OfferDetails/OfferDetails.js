@@ -42,15 +42,14 @@ class OfferDetails extends React.Component {
         offer.pizzas = $('.pizza-selected').map(function() {
             return $(this).val();
         })
-        console.log(offer.pizzas);
         addToCart(offer);
         saveCart(cart);
         toastr.options = {
-            timeOut : 0,
-            extendedTimeOut : 100,
+            timeOut : 1000,
+            extendedTimeOut : 1000,
             tapToDismiss : true,
             debug : false,
-            fadeOut: 10,
+            fadeOut: 1000,
             positionClass : 'toast-top-left'
         };        
         toastr.success('Offer added to cart! now GTFO', 'Success!');
@@ -70,7 +69,7 @@ class OfferDetails extends React.Component {
                             <div>{this.displayOffer(offer[0].id,pizza)}</div>
                         </div>
                     </div>
-                    <button onClick={() => this.addOfferToCart(offer[0])}>Add to cart</button>
+                    <button className="statham-button" onClick={() => this.addOfferToCart(offer[0])}>Add to cart</button>
                 </div>
             )
         }else {
