@@ -28,7 +28,7 @@ class PizzaDetails extends React.Component {
                     <div className="details-name"><u>{pizza[0].name}</u></div>
                     <div className="details-description">{pizza[0].description}</div>
                     <div className="details-price">Price: {pizza[0].price}</div>
-                    <button className="details-button" onClick={() => this.addPizzaToCart(pizza[0])}>Add to cart</button>
+                    <button className="details-button statham-button hvr-pulse" onClick={() => this.addPizzaToCart(pizza[0])}>Add to cart</button>
                 </div>
             )
         }else{
