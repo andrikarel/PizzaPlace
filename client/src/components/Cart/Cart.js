@@ -30,7 +30,7 @@ class Cart extends React.Component {
             <div>
                 <h1 className="pageTitle">CART</h1>
                 {cart.map((c, index)=><CartItem key={index} cart={c}/>)}
-                <Link to='/checkout/'>
+                <Link to='/cart/checkout/'>
                     <button className='statham-button'>Checkout</button>
                 </Link>
                 <h2 className="pageTitle">TOTAL: {this.calculateTotalPrice(cart)}</h2>

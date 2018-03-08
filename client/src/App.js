@@ -30,8 +30,8 @@ const App = () => {
                 <Route path="/about" component={About}/>
                 <Route exact path="/offers" component={OfferMenu}/>
                 <Route path="/offers/:id" component={OfferDetails}/>
-                <Route path="/cart" component={Cart}/> 
-                <Route path="/checkout" component={Checkout}/> 
+                <Route exact path="/cart" component={Cart}/> 
+                <Route path="/cart/checkout" component={Checkout}/> 
             </Switch>
         </div>
     )
