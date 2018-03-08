@@ -1,45 +1,70 @@
 import React from 'react';
 import  {connect} from 'react-redux';
+
 import  {PropTypes} from 'prop-types';
 
-import {getPizzaDetails,addToCart,saveCart} from '../../actions/pizzaActions'
+import {getOfferDetails,getAllPizzas} from '../../actions/pizzaActions'
 
 
 
-class PizzaDetails extends React.Component {
+
+class OfferDetails extends React.Component {
     componentDidMount() {
-        const {getPizzaDetails} = this.props;
-        getPizzaDetails(this.props.match.params.id);
+        const {getOfferDetails,getAllPizzas} = this.props;
+        getOfferDetails(this.props.match.params.id);
+        getAllPizzas();
     }
-    addPizzaToCart(pizza) {
-        const {addToCart,saveCart,cart} = this.props;
-        pizza.type = 'pizza';
-        addToCart(pizza);
-        saveCart(cart);
-    }
-    render() {
-        const {pizza} = this.props;
-        if(pizza.length != 0) {
+    displayOffer(id,pizza) {
+        if(id === 1 || id === 2) {
             return(
-                <div className="details-wrapper">
-                    <div className="details-image hvr-buzz">
-                        <img src={pizza[0].image} alt=""/>
-                    </div>
-                    <div className="details-name"><u>{pizza[0].name}</u></div>
-                    <div className="details-description">{pizza[0].description}</div>
-                    <div className="details-price">Price: {pizza[0].price}</div>
-                    <button className="details-button" onClick={() => this.addPizzaToCart(pizza[0])}>Add to cart</button>
+                <div>
+                    <select>
+                        {pizza.map(p=><option value ={p.id}>{`${p.name} - ${p.price}`}</option>)}
+                    </select>
+                    <select>
+                        {pizza.map(p=><option value ={p.id}>{`${p.name} - ${p.price}`}</option>)}
+                    </select>
+                    
                 </div>
-            )
-        }else{
-            return(<p></p>)
+            );
+        }else {
+            return(
+                <select>
+                    {pizza.map(p=><option value ={p.id}>{`${p.name} - ${p.price}`}</option>)}
+                </select>
+            );
         }
     }
+    
+    render() {
+        const {offer,pizza} = this.props;
+        if(offer.length != 0) {
+            return(
+                <div className="details-wrapper">
+                    
+                    <div className="details-name"><u>{offer[0].offer}</u></div>
+                    <div className="details-description">This offer is valid for {offer[0].validFor}</div>
+                    <div className="details-price">Price: {offer[0].price}</div>
+                    <div>Choose a pizza for {offer[0].validFor}
+                        <div>
+                            <div>{this.displayOffer(offer[0].id,pizza)}</div>
+                        </div>
+                    </div>
+                    <button>Add to cart</button>
+                </div>
+            )
+        }else {
+            return(<p>helpMe</p>);
+        }
+  
+    }
 };
-PizzaDetails.propTypes = {
+OfferDetails.propTypes = {
     id:PropTypes.number
 };
-const mapStateToProps = ({pizza,cart}) => {
-    return {pizza,cart}
+const mapStateToProps = ({offer,pizza}) => {
+    return {offer,pizza}
 }
-export default connect(mapStateToProps, {getPizzaDetails, addToCart,saveCart})(PizzaDetails);
+
+export default connect(mapStateToProps, {getOfferDetails,getAllPizzas})(OfferDetails);
+

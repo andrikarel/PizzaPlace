@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 
 const Offer = ({offer}) => {
     return(
-        <Link to={`/menu/${offer.id}`}>
+        <Link to={`/offers/${offer.id}`}>
             <div className="pizza-wrapper hvr-grow">
                 <div className="pizza-name">{offer.offer}</div>
                 <div className="pizza-description">This offer is valid for {offer.validFor}</div>
