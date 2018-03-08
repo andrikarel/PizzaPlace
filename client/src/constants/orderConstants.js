@@ -1,1 +1,2 @@
 export const GET_ORDER_BY_TELEPHONE = 'GET_ORDER_BY_TELEPHONE';
+export const ADD_ORDER = 'ADD_ORDER';

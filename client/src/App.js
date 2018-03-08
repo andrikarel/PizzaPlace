@@ -12,10 +12,8 @@ import {BrowserRouter as Router,Switch,Route,Redirect} from 'react-router-dom';
 import OfferMenu from './components/OfferMenu/OfferMenu';
 import Cart from './components/Cart/Cart';
 import Checkout from './components/Checkout/Checkout';
-
 import OfferDetails from './components/OfferDetails/OfferDetails';
-
-
+import PreviousOrders from './components/PreviousOrders/PreviousOrders';
 
 const App = () => {
     return (
@@ -32,6 +30,7 @@ const App = () => {
                 <Route path="/offers/:id" component={OfferDetails}/>
                 <Route exact path="/cart" component={Cart}/> 
                 <Route path="/cart/checkout" component={Checkout}/> 
+                <Route path="/cart/:telephone" component={PreviousOrders}/> 
             </Switch>
         </div>
     )

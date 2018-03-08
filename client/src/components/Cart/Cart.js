@@ -4,13 +4,12 @@ import {getCart, loadCart} from '../../actions/pizzaActions'
 import CartItem from '../../components/CartItem/CartItem';
 import {Link} from 'react-router-dom';
 
-
-
 class Cart extends React.Component {
     constructor() {
         super();
         this.state = {
-            firstload: true
+            firstload: true,
+            value: ''
         }
     }
     componentDidMount() {
@@ -33,8 +32,11 @@ class Cart extends React.Component {
                 <Link to='/cart/checkout/'>
                     <button className='statham-button'>Checkout</button>
                 </Link>
-                <h2 className="pageTitle">TOTAL: {this.calculateTotalPrice(cart)}</h2>
-                
+                <input value={this.state.value} type="text" placeholder="Phone for prev. orders" onChange={(evt) => this.setState({value: evt.target.value })}/>
+                <Link to={`/cart/${this.state.value}`}>
+                    <button className='statham-button'>Get previous orders</button>
+                </Link>
+                <h2 className="pageTitle">TOTAL: {this.calculateTotalPrice(cart)}</h2>    
             </div>
         )
     }

@@ -25,7 +25,7 @@ class CartItem extends React.Component {
                     </div>
                     <div className="cart-name">OFFER</div>
                     <div className="cart-description">{offer}, valid for {validFor}
-                        {pizzas.map((p) => <b key={p}><br/> - {pizzas[p]}</b>)}
+                        {pizzas.map((p,i) => <b key={i}><br/> - {p}</b>)}
                     </div>
                     <div className="cart-price">{price}</div>
                     <button onClick= {() => removeFromCart(cart)} className="cart-remove statham-button hvr-pulse">X</button>

@@ -25,7 +25,6 @@ class OfferDetails extends React.Component {
                     <select className='pizza-selected'>
                         {pizza.map(p=><option key={p.id} value ={p.name}>{`${p.name} - ${p.price}`}</option>)}
                     </select>
-                    
                 </div>
             );
         }else {
@@ -39,8 +38,9 @@ class OfferDetails extends React.Component {
     addOfferToCart(offer) {
         const {addToCart,saveCart,cart} = this.props;
         offer.type = 'offer';
-        offer.pizzas = $('.pizza-selected').map(function() {
-            return $(this).val();
+        offer.pizzas = [];
+        $('.pizza-selected').map(function() {
+            offer.pizzas.push($(this).val());
         })
         addToCart(offer);
         saveCart(cart);
