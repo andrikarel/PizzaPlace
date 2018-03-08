@@ -11,6 +11,7 @@ import NavigationBar from './components/NavBar/NavBar';
 import {BrowserRouter as Router,Switch,Route,Redirect} from 'react-router-dom';
 import OfferMenu from './components/OfferMenu/OfferMenu';
 import Cart from './components/Cart/Cart';
+import OfferDetails from './components/OfferDetails/OfferDetails';
 
 
 
@@ -25,7 +26,8 @@ const App = () => {
                 }} />
                 <Route path="/menu/:id" component={PizzaDetails}/>
                 <Route path="/about" component={About}/>
-                <Route path="/offers" component={OfferMenu}/>
+                <Route exact path="/offers" component={OfferMenu}/>
+                <Route path="/offers/:id" component={OfferDetails}/>
                 <Route path="/cart" component={Cart}/> 
             </Switch>
         </div>

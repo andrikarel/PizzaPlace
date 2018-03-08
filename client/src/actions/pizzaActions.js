@@ -1,5 +1,5 @@
 
-import {GET_ALL_PIZZAS,GET_PIZZA_DETAILS, GET_ALL_OFFERS} from '../constants/pizzaConstants';
+import {GET_ALL_PIZZAS,GET_PIZZA_DETAILS, GET_ALL_OFFERS,GET_OFFER_DETAILS} from '../constants/pizzaConstants';
 import fetch from 'isomorphic-fetch';
 import { LOAD_CART, SAVE_CART, ADD_TO_CART,GET_CART, CLEAR_CART } from '../constants/cartConstants';
 const myStorage = window.localStorage;
@@ -35,6 +35,17 @@ const getAllOffersSuccess = (offers) => {
     return {
         type: GET_ALL_OFFERS,
         payload: offers
+    }
+}
+
+export const getOfferDetails = (id) => {
+    return dispatch => fetch(`http://localhost:3500/api/offers/${id}`).then(json => json.json()).then(data => dispatch(getOfferDetailsSuccess(data)));
+};
+
+const getOfferDetailsSuccess = (offerDetails) => {
+    return {
+        type: GET_OFFER_DETAILS,
+        payload: [offerDetails]
     }
 }
 
