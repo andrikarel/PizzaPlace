@@ -1,6 +1,7 @@
 import React from 'react';
 import  {connect} from 'react-redux';
 import  {PropTypes} from 'prop-types';
+import toastr from 'toastr';
 
 import {getPizzaDetails,addToCart,saveCart} from '../../actions/pizzaActions'
 
@@ -16,6 +17,15 @@ class PizzaDetails extends React.Component {
         pizza.type = 'pizza';
         addToCart(pizza);
         saveCart(cart);
+        toastr.options = {
+            timeOut : 0,
+            extendedTimeOut : 100,
+            tapToDismiss : true,
+            debug : false,
+            fadeOut: 10,
+            positionClass : 'toast-top-left'
+        };        
+        toastr.success('Pizza added to cart!', 'Success!');
     }
     render() {
         const {pizza} = this.props;

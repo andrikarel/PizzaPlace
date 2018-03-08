@@ -1,7 +1,7 @@
 
 import {GET_ALL_PIZZAS,GET_PIZZA_DETAILS, GET_ALL_OFFERS,GET_OFFER_DETAILS} from '../constants/pizzaConstants';
 import fetch from 'isomorphic-fetch';
-import { LOAD_CART, SAVE_CART, ADD_TO_CART,GET_CART, CLEAR_CART } from '../constants/cartConstants';
+import { LOAD_CART, SAVE_CART, ADD_TO_CART,GET_CART, CLEAR_CART, REMOVE_FROM_CART } from '../constants/cartConstants';
 const myStorage = window.localStorage;
 
 
@@ -90,6 +90,13 @@ export const clearCart = () => {
     return dispatch({
         type: CLEAR_CART,
         payload: []
+    })
+}
+
+export const removeFromCart = (item) => {
+    return dispatch => dispatch({
+        type: REMOVE_FROM_CART,
+        payload: item
     })
 }
 

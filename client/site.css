@@ -206,3 +206,6 @@ body{
 .statham-button:hover {
     background-color: rgb(167, 87, 167);
 }
+.toast-top-left{
+    margin-top: 100px;
+}

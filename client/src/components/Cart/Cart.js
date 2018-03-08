@@ -13,11 +13,6 @@ class Cart extends React.Component {
         }
     }
     componentDidMount() {
-        if(this.state.firstload === true) {
-            const {loadCart} = this.props;
-            loadCart();
-            this.setState({firstload: false});  
-        }
         const {getCart} = this.props;
         getCart();
     }
